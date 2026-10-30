@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 38 14% 4%;
+  --background-2: 36 16% 7%;
+  --foreground: 40 30% 92%;
+  --card: 36 14% 9%;
+  --card-foreground: 40 30% 92%;
+  --popover: 36 16% 7%;
+  --popover-foreground: 40 30% 92%;
+  --primary: 38 46% 57%;
+  --primary-foreground: 40 33% 7%;
+  --secondary: 36 16% 11%;
+  --secondary-foreground: 40 30% 92%;
+  --muted: 36 14% 11%;
+  --muted-foreground: 38 14% 60%;
+  --accent: 38 50% 70%;
+  --accent-foreground: 40 33% 7%;
+  --destructive: 12 60% 56%;
+  --destructive-foreground: 40 30% 98%;
+  --border: 38 25% 14%;
+  --input: 38 25% 14%;
+  --ring: 38 46% 57%;
+  --gold: 38 46% 57%;
+  --gold-light: 38 55% 72%;
+  --gold-dark: 38 40% 42%;
+  --radius: 0.75rem;
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --sidebar-background: 36 16% 7%;
+  --sidebar-foreground: 40 30% 92%;
+  --sidebar-primary: 38 46% 57%;
+  --sidebar-primary-foreground: 40 33% 7%;
+  --sidebar-accent: 36 14% 11%;
+  --sidebar-accent-foreground: 40 30% 92%;
+  --sidebar-border: 38 25% 14%;
+  --sidebar-ring: 38 46% 57%;
+}
+
+* {
+  border-color: hsl(var(--border));
+  outline-color: hsl(var(--ring) / 0.5);
+}
+
+body {
+  background-color: hsl(var(--background));
+  font-family: var(--font-body);
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: hsl(var(--gold) / 0.3);
+  color: hsl(var(--gold-light));
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold-dark) / 0.5);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gold) / 0.7);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--gold-light)),
+    hsl(var(--gold)) 55%,
+    hsl(var(--gold-dark))
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--gold-light)),
+    hsl(var(--gold)) 55%,
+    hsl(var(--gold-dark))
+  );
+}
+
+.glass {
+  background: hsl(var(--card) / 0.6);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--border));
+}
+
+.shadow-gold {
+  box-shadow: 0 8px 30px hsl(var(--gold) / 0.25);
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-up {
+  animation: 0.5s ease-out fadeUp;
+}
+
+@keyframes pulseGold {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--gold) / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px hsl(var(--gold) / 0);
+  }
+}
+
+.animate-pulse-gold {
+  animation: 2s ease-in-out infinite pulseGold;
+}
